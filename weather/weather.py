@@ -4,16 +4,22 @@ import json
 conn = http.client.HTTPSConnection("community-open-weather-map.p.rapidapi.com")
 
 headers = {
-    'x-rapidapi-key': WEATHER_API_KEY,
+    'x-rapidapi-key': WEATHER_API_KEY, 
     'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com"
     }
-
-city = "boston"
 
 forecast_days = 17 
 # 17 is the max into the future we can look at 
 
-req_path =  "/forecast/daily?q=" + city + "%2Cus&cnt=" + str(forecast_days) + "&units=imperial"
+# requesting by city 
+# city = "boston"
+# req_path =  "/forecast/daily?q=" + city + "%2Cus&cnt=" + str(forecast_days) + "&units=imperial"
+
+# coordinates for boston, ma 
+lat = 42.361145
+lon = -71.057083
+
+req_path = "/forecast/daily?lat=" + str(lat) + "&lon=" + str(lon) + "&cnt=" + str(forecast_days) + "&units=imperial"
 
 conn.request("GET", req_path, headers=headers)
 
