@@ -19,7 +19,7 @@ def weather():
         except Exception as e:
             forecast = [[e]]
         #return f"Found lat: {lat} long: {lon}"
-        return jsonify(forecast)
+        return jsonify(forecast), 200
 
 if __name__ == '__main__':
     # init()
