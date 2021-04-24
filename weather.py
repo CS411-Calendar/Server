@@ -1,10 +1,17 @@
 import http.client
 import json
+from dotenv import dotenv_values
+from pathlib import Path
 
+# POTENTIALLY INSECURE!!!
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+config = dotenv_values('.env')
 conn = http.client.HTTPSConnection("community-open-weather-map.p.rapidapi.com")
 
 headers = {
-    'x-rapidapi-key': WEATHER_API_KEY, 
+    'x-rapidapi-key': config['WEATHER_API_KEY'], 
     'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com"
     } 
 
@@ -46,7 +53,7 @@ def get_weather(lat:float, lon:float):
     entries = json.dumps(data, indent=4)
     # print(entries)
 
-    out = open("weather\wforecast.json", "w") 
+    out = open(Path('weather') / 'wforecast.json', "w") 
     json.dump(data, out, indent = 4) 
     out.close() 
 
