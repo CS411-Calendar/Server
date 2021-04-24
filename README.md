@@ -1,14 +1,13 @@
 # Installation
 
 ```
-pip3 install django
+pip3 install flask
 ```
 
 # Quickstart
 
 ```python
-cd server
-python3 manage.py runserver
+python3 app.py
 ```
 
 ## Python Tips
