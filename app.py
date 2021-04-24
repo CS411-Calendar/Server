@@ -21,7 +21,7 @@ def weather():
             forecast = get_weather(float(lat), float(lon))
         except Exception as e:
             return 'Internal Server Error', 500
-        return forecast, 200
+        return jsonify(forecast), 200
 
 if __name__ == '__main__':
     # init()
