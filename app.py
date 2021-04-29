@@ -1,12 +1,8 @@
-from flask import request, Flask, jsonify
+from flask import request, jsonify
 from datetime import datetime
 # from db import db, init
 from weather import get_weather
-from flask_cors import CORS, cross_origin
-app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/')
 def hello_world():
