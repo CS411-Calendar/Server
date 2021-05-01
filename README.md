@@ -1,7 +1,9 @@
 # Installation
 
+Setup postgresql and .env vars
+
 ```
-pip3 install flask
+pip3 install -r requirements.txt
 ```
 
 # Quickstart
@@ -10,50 +12,22 @@ pip3 install flask
 python3 app.py
 ```
 
-## Python Tips
+# Database migration folder commands
 
-Install requirements.txt
-
-```
-pip3 install -r requirements.txt
-```
-
-## Virtualenv MacOS
-
-Create
+Init migration folder
 
 ```
-virtualenv env -p python3
+flask db init
 ```
 
-Start
+Create migration
 
 ```
-source env/bin/activate
+flask db migrate -m "Initial migration."
 ```
 
-End
+Commit migration
 
 ```
-deactivate
-```
-
-## Virtualenv Windows
-
-Create 
-
-```
-python3 -m venv env
-```
-
-Start
-
-```
-./env/Scripts/activate
-```
-
-End
-
-```
-deactivate
+flask db upgrade
 ```

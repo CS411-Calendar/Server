@@ -15,13 +15,31 @@ def createErrorResponse(error: str):
 @app.route('/api/calendar/invite', methods=['POST'])
 def calendar():
     userAgent = request.headers.get('User-Agent')
-    if request.method == 'POST' and userAgent:
+    contentType = request.headers.get('Content-Type')
+
+    if request.method == 'POST':
+        data = request.json
+        name = data.get('name')
+
+        try:
+            start = datetime.strptime(data.get('start'), '%Y-%m-%d')
+            end = datetime.strptime(data.get('end'), '%Y-%m-%d')
+        except:
+            return make_response(createErrorResponse("Date must be of format Year-Month-Day"), 400)
+
+        location = data.get('location')
+
+        if not userAgent:
+            return make_response(createErrorResponse("Missing Header User Agent"), 400)
+        if not name or not isinstance(name, str):
+            return make_response(createErrorResponse("Missing Key-Value string field 'name'"), 400)
+        
         userId = createUserId(request.remote_addr, userAgent)
 
         if not User.query.get(userId):
             user = User(id=userId)
             db.session.add(user)
-        invite = Invite(ownerId=userId)
+        invite = Invite(ownerId=userId, start=start, end=end, location=location, name=name)
         db.session.add(invite)
         db.session.commit()
         return make_response(invite.json(), 201)
