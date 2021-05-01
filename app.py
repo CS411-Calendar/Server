@@ -37,7 +37,7 @@ def calendar():
         if not name or not isinstance(name, str):
             return make_response(createErrorResponse("Missing Key-Value string field name"), 400)
 
-        calendar, commitCalendar = Calendar.createOrGet(email)
+        calendar, newCalendar = Calendar.createOrGet(email)
 
         if newCalendar:
             db.session.add(calendar)
