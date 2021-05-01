@@ -37,3 +37,23 @@ End
 ```
 deactivate
 ```
+
+## Virtualenv Windows
+
+Create 
+
+```
+python3 -m venv env
+```
+
+Start
+
+```
+./env/Scripts/activate
+```
+
+End
+
+```
+deactivate
+```
