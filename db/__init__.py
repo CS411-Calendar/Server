@@ -21,6 +21,12 @@ class Invite(db.Model):
     def json(self):
         return jsonify({
             "id": self.id,
+            "createdAt": self.createdAt.strftime('%m/%d/%Y'),
+            "start": self.start.strftime('%m/%d/%Y'),
+            "end": self.end.strftime('%m/%d/%Y'),
+            "name": self.name,
+            "location": self.location,
+            "to": self.to
         })
 
     def __repr__(self):
