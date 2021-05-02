@@ -19,7 +19,10 @@ class Invite(db.Model):
     location = db.Column(db.String(100))
 
     def json(self):
-        return jsonify({
+        return jsonify(self.toDict())
+
+    def toDict(self):
+        return {
             "id": self.id,
             "createdAt": self.createdAt.strftime('%m/%d/%Y'),
             "start": self.start.strftime('%m/%d/%Y'),
@@ -27,7 +30,7 @@ class Invite(db.Model):
             "name": self.name,
             "location": self.location,
             "to": self.to
-        })
+        }
 
     def __repr__(self):
         return '<Invite %r>' % self.id
@@ -54,10 +57,13 @@ class Attendee(db.Model):
         return attendee, False
 
     def json(self):
-        return jsonify({
+        return jsonify(self.toDict())
+
+    def toDict(self):
+        return {
             "inviteId": self.inviteId,
             "calendarId": self.calendarId
-        })
+        }
 
     def __repr__(self):
         return '<Attendee %r>' % self.id

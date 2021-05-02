@@ -3,6 +3,7 @@ from datetime import datetime
 from db import Invite, Calendar, Attendee, db, init
 from weather import get_weather
 from config import app
+from sqlalchemy.orm import sessionmaker
 
 
 def createErrorResponse(error: str):
@@ -52,8 +53,12 @@ def calendar():
 def inviteLink(inviteId: int):
     if request.method == 'GET':
         data = Invite.query.get(inviteId)
+        attendees = Attendee.query.filter(Attendee.inviteId == inviteId)
         if data:
-            return make_response(data.json(), 200)
+            return make_response(jsonify({
+                "inviteJson": data.toDict(), 
+                "attendeeJson": [attendee.toDict() for attendee in attendees]
+            }), 200)
         else:
             return make_response(createErrorResponse("Not Found"), 404)
     elif request.method == 'PUT':

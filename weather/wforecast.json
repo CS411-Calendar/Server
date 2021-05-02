@@ -11,7 +11,7 @@
         "timezone": -14400
     },
     "cod": "200",
-    "message": 16.3196708,
+    "message": 17.1428088,
     "cnt": 17,
     "list": [
         {
@@ -19,7 +19,7 @@
             "sunrise": 1619949206,
             "sunset": 1619999578,
             "temp": {
-                "day": 64.4,
+                "day": 63.77,
                 "min": 55.4,
                 "max": 70.84,
                 "night": 66,
@@ -27,13 +27,13 @@
                 "morn": 55.99
             },
             "feels_like": {
-                "day": 62.42,
+                "day": 61.92,
                 "night": 53.51,
                 "eve": 70.34,
                 "morn": 53.51
             },
             "pressure": 1009,
-            "humidity": 40,
+            "humidity": 44,
             "weather": [
                 {
                     "id": 500,
@@ -45,7 +45,7 @@
             "speed": 14.47,
             "deg": 254,
             "gust": 32.7,
-            "clouds": 21,
+            "clouds": 80,
             "pop": 0.6,
             "rain": 1.27
         },
