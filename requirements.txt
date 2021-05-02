@@ -9,3 +9,6 @@ SQLAlchemy==1.4.7
 Werkzeug==1.0.1
 python-dotenv
 Flask-Migrate
+flask
+flask_cors
+psycopg2-binary
