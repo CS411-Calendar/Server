@@ -62,12 +62,13 @@ def inviteLink(inviteId: int):
         else:
             return make_response(createErrorResponse("Not Found"), 404)
     elif request.method == 'PUT':
+        data = request.json
         invite = Invite.query.get(inviteId)
 
         if not invite:
             return make_response(createErrorResponse("Invite ID Not Found"), 404)
 
-        calendarId = request.form.get('id')
+        calendarId = data.get('id')
         if not calendarId:
             return make_response(createErrorResponse("Missing Public Calendar ID"), 400)
 
