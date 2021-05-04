@@ -81,7 +81,7 @@ def inviteLink(inviteId: int):
             db.session.add(attendee)
         
         db.session.commit()
-        return make_response(invite_calendar.json(), 201)
+        return make_response(attendee.json(), 201)
 
 
 @app.route('/weather', methods=['GET', 'POST'])
