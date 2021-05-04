@@ -1,3 +1,6 @@
+# App Repo
+This repository is coupled with the following repository for the front-end: https://github.com/CS411-Calendar/App
+
 # Installation
 
 Setup postgresql and .env vars
