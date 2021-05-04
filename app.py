@@ -77,7 +77,7 @@ def inviteLink(inviteId: int):
             db.session.add(calendar)
 
         attendee, newAttendee = Attendee.createOrGet(inviteId, calendarId)
-        if not newAttendee:
+        if newAttendee:
             db.session.add(attendee)
         
         db.session.commit()
