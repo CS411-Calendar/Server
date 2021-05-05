@@ -1,7 +1,9 @@
-# App Repo
+# CalendarApp (Team 20)
+
+## App Repo
 This repository is coupled with the following repository for the front-end: https://github.com/CS411-Calendar/App
 
-# Installation
+## Installation
 
 Setup postgresql and .env vars
 
@@ -9,13 +11,13 @@ Setup postgresql and .env vars
 pip3 install -r requirements.txt
 ```
 
-# Quickstart
+## Quickstart
 
 ```python
 python3 app.py
 ```
 
-# Database migration folder commands
+## Database migration folder commands
 
 Init migration folder
 
